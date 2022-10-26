@@ -1,9 +1,12 @@
 import './style.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import 'bootstrap'
+import $ from 'jquery'
 
 import Alpine from 'alpinejs'
 import Clipboard from "@ryangjchandler/alpine-clipboard"
+
+window.jQuery = window.$ = $
 
 Alpine.plugin(Clipboard)
 
@@ -96,10 +99,10 @@ Alpine.data('appData', ()=>(
     inputNumber: 0,
     colorParam: '',
     modalOpen() {
-        $('#colorModal').modal('show')
+        $('#colorModal').show()
     },
     modalClose() {
-        $('#colorModal').modal('hide')
+        $('#colorModal').hide()
     },
     inputColor(param) {
         switch (param) {
