@@ -4,11 +4,11 @@ import 'bootstrap'
 import $ from 'jquery'
 
 import Alpine from 'alpinejs'
-// import Clipboard from "@ryangjchandler/alpine-clipboard"
+import Clipboard from "@ryangjchandler/alpine-clipboard"
 
 window.jQuery = window.$ = $
 
-// Alpine.plugin(Clipboard)
+Alpine.plugin(Clipboard)
 
 window.Alpine = Alpine
 

@@ -13,13 +13,13 @@
     x-init="{r_code: random_red(),g_code: random_green(),b_code: random_blue()}" x-data="appData()">
     <div class="square text-center d-flex justify-content-center align-items-center border display-1 m-3" :style="rgb"
       x-text="rgb_text" x-model="rgb_text"></div>
-    <!-- <template
+    <template
       x-if="location.href.includes('localhost') || location.href.includes('127.0.0.1') || location.protocol === 'https:'">
       <div>
         <button type="button" x-clipboard="rgb_text" x-text="'拷貝色碼： ' + rgb_text">
         </button>
       </div>
-    </template> -->
+    </template>
     <div class="col flex-column">
       <div>
         <button id="rr" class="btn m-1 btn-danger col-1" @click="inputColor('red')" x-text="'R: '+ r_code">
