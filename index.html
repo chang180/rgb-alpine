@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <script type="module" crossorigin src="/assets/index.ef1d886c.js"></script>
+  <link rel="stylesheet" href="/assets/index.4a043255.css">
+</head>
+
+<body>
+  <div class="container d-flex flex-column" x-cloak
+    x-init="{r_code: random_red(),g_code: random_green(),b_code: random_blue()}" x-data="appData()">
+    <div class="square text-center d-flex justify-content-center align-items-center border display-1 m-3" :style="rgb"
+      x-text="rgb_text" x-model="rgb_text"></div>
+    <!-- <template
+      x-if="location.href.includes('localhost') || location.href.includes('127.0.0.1') || location.protocol === 'https:'">
+      <div>
+        <button type="button" x-clipboard="rgb_text" x-text="'拷貝色碼： ' + rgb_text">
+        </button>
+      </div>
+    </template> -->
+    <div class="col flex-column">
+      <div>
+        <button id="rr" class="btn m-1 btn-danger col-1" @click="inputColor('red')" x-text="'R: '+ r_code">
+        </button>
+        <input class="col-5 p-0" type="range" min="0" max="255" x-model="r_code" />
+      </div>
+      <div>
+        <button id="gg" class="btn m-1 btn-success col-1" @click="inputColor('green')" x-text="'G: '+ g_code">
+        </button>
+        <input class="col-5 p-0" type="range" min="0" max="255" x-model="g_code" />
+      </div>
+      <div>
+        <button id="bb" class="btn m-1 btn-primary col-1" @click="inputColor('blue')" x-text="'B: ' + b_code">
+        </button>
+        <input class="col-5 p-0" type="range" min="0" max="255" x-model="b_code" />
+      </div>
+    </div>
+    <div class="btn-group col">
+      <button class="btn btn-warning col-1 m-1" @mousedown="adjust('plus')" @mouseup="adjust('stop')"
+        @mouseout="adjust('stop')" x-model="rgb_text">+</button>
+      <button class="btn btn-secondary col-1 m-1" @mousedown="adjust('minus')" @mouseup="adjust('stop')"
+        @mouseout="adjust('stop')" x-model="rgb_text">-</button>
+      <button class="btn btn-info col-1 m-1" @mousedown="changeColor('on')" @mouseup="changeColor('off')"
+        @mouseout="changeColor('off')" x-text="'隨機顏色:' + switch_text">
+      </button>
+    </div>
+    <!-- Modal start -->
+    <div class="modal" tabindex="-1" role="dialog" x-show="isModalOpen" id="colorModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">請輸入色碼0-255(<span x-text="colorParam"></span>)</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="modalClose()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="number" min="0" max="255" x-model="inputNumber">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" @click="saveColor()">送出</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="modalClose()">關閉</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal end -->
+  </div>
+  
+</body>
+
+</html>
