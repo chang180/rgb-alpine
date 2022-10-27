@@ -6,7 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="/rgb-alpine/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite App</title>
-  <script type="module" crossorigin src="/rgb-alpine/assets/index.ef1d886c.js"></script>
+  <script type="module" crossorigin src="/rgb-alpine/assets/index.6f5d5624.js"></script>
   <link rel="stylesheet" href="/rgb-alpine/assets/index.4a043255.css">
 </head>
 
@@ -15,13 +15,13 @@
     x-init="{r_code: random_red(),g_code: random_green(),b_code: random_blue()}" x-data="appData()">
     <div class="square text-center d-flex justify-content-center align-items-center border display-1 m-3" :style="rgb"
       x-text="rgb_text" x-model="rgb_text"></div>
-    <!-- <template
+    <template
       x-if="location.href.includes('localhost') || location.href.includes('127.0.0.1') || location.protocol === 'https:'">
       <div>
         <button type="button" x-clipboard="rgb_text" x-text="'拷貝色碼： ' + rgb_text">
         </button>
       </div>
-    </template> -->
+    </template>
     <div class="col flex-column">
       <div>
         <button id="rr" class="btn m-1 btn-danger col-1" @click="inputColor('red')" x-text="'R: '+ r_code">
